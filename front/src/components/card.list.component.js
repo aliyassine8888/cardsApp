@@ -16,7 +16,7 @@ const columns = [
   {
     field: 'pan',
     headerName: 'Primary Account Number',
-    width: 150,
+    width: 220,
     editable: true,
   },
   {
@@ -38,7 +38,17 @@ const columns = [
 export default function DataGridDemo({cards}) {
   return (
     (cards && cards.length > 0) ? (
-        <Box sx={{ height: 400, width: '100%' }}>
+        <Box sx={{
+        height: 400,
+        width: '100%',
+        '& .normalClass': {
+          color: '#1a3e72',
+        },
+        '& .redClass': {
+          color: '#ff0000',
+          fontWeight:'bold'
+        },
+      }}>
         <DataGrid
             rows={cards}
             columns={columns}
@@ -47,6 +57,12 @@ export default function DataGridDemo({cards}) {
             checkboxSelection
             disableSelectionOnClick
             experimentalFeatures={{ newEditingApi: true }}
+            getCellClassName={(params) => {
+              if (params.field === 'balance' && params.value <=0) {
+                return 'redClass';
+              }
+              return 'normalClass';
+            }}
         />
         </Box>
       ) : (

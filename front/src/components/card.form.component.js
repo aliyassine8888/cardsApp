@@ -43,7 +43,9 @@ export default function FormSubmitHooks() {
     noValidate
     autoComplete="off"
   >
-        <FormLabel component="legend">Card Details</FormLabel>
+      <FormLabel component="legend" sx={{
+          fontSize: '1.6em',
+        }}>Credit Card System</FormLabel>
       <FormGroup
         sx={{
           padding: 2,
@@ -56,7 +58,7 @@ export default function FormSubmitHooks() {
           sx={{ paddingBottom: 2 }}
           name="name"
           variant="outlined"
-          placeholder="CardHolder Name..."
+          placeholder="Card-Holder Name..."
           onChange={handleTextFieldChange}
         />
         <TextField
