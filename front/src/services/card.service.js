@@ -5,17 +5,24 @@ const cardService = {
     let res = await axios.get(`/api/cards`);
     return res.data || [];
   },
-  add: async (name, lastName) => {
-    let res = await axios.post(`/api/card/`, { name, lastName })
+  add: async ({ name, pan, limit }) => {
+    let res = await axios.post(`/api/card/`, {
+      headers: {
+        'Content-Type': 'application/json'
+      }, name, pan, limit
+    })
     return res.data || {};
   },
-  edit: async (name, lastName, id) => {
-    let res = await axios.put(`/api/card/`, { name, lastName, id })
+  edit: async ({ name, pan, limit, balance, id }) => {
+    let res = await axios.put(`/api/card/`, {
+      headers: {
+        'Content-Type': 'application/json'
+      }, name, pan, limit, balance, id })
     return res.data || {};
   },
   delete: async (id) => {
     let res = await axios.delete(`/api/card/${id}`);
-    return res.data || [];   
+    return res.data || [];
   }
 };
 

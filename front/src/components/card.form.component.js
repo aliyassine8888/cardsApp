@@ -9,7 +9,7 @@ import Box from '@mui/material/Box';
 
 
 
-export default function FormSubmitHooks() {
+export default function FormSubmitHooks({addCard}) {
   const [formValues, setFormValues] = useState({});
   
   const handleTextFieldChange = (
@@ -24,13 +24,7 @@ export default function FormSubmitHooks() {
 
 
   const handleSubmit = () => {
-    fetch('/somewhere.html', {
-      method: 'POST',
-      body: JSON.stringify(formValues),
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    })
+    addCard(formValues);
   }
 
   return (
@@ -64,6 +58,7 @@ export default function FormSubmitHooks() {
         <TextField
           sx={{ paddingBottom: 2 }}
           name="pan"
+          type="number"
           variant="outlined"
           placeholder="Primary Account Number..."
           onChange={handleTextFieldChange}
@@ -71,6 +66,7 @@ export default function FormSubmitHooks() {
         <TextField
           sx={{ paddingBottom: 2 }}
           name="limit"
+          type="number"
           variant="outlined"
           placeholder="Limit"
           onChange={handleTextFieldChange}

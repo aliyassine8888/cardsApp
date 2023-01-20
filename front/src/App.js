@@ -22,9 +22,17 @@ function App() {
     setCards(res);
   }
 
+  const addCard = async (card) => {
+    let res = await cardService.add({...card});
+
+    if(res && res.error==false){
+      getCards();
+    }
+  }
+
   return (
     <div className="App">
-      <CardForm></CardForm>
+      <CardForm addCard={addCard}></CardForm>
       <CardList cards={cards}></CardList>
     </div>
   );
