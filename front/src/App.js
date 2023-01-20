@@ -31,7 +31,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App" data-testid="App">
       <CardForm addCard={addCard}></CardForm>
       <CardList cards={cards}></CardList>
     </div>
