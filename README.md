@@ -38,5 +38,6 @@ Concurently run the client and the server apps.\
 
 <img src="./front/public/ccs11.png" alt="Alt text" title="Optional title">
 <img src="./front/public/ccs21.png" alt="Alt text" title="Optional title">
+<img src="./front/public/ccs3.png" alt="Alt text" title="Optional title">
 
 
