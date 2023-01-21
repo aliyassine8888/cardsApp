@@ -1,8 +1,11 @@
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable react/jsx-filename-extension */
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
+import PropTypes from 'prop-types';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
@@ -11,15 +14,15 @@ const columns = [
     headerName: 'Full name',
     minWidth: 100,
     editable: false,
-    resizable:false,
+
   },
   {
     field: 'pan',
     headerName: 'Primary Account Number',
-    minWidth: 220,
-    flex:1,
+    minWidth: 150,
+    flex: 1,
     editable: false,
-    resizable:true,
+
   },
   {
     field: 'balance',
@@ -27,7 +30,7 @@ const columns = [
     type: 'number',
     minWidth: 110,
     editable: false,
-    resizable:true,
+
   },
   {
     field: 'limit',
@@ -35,14 +38,13 @@ const columns = [
     type: 'number',
     minWidth: 110,
     editable: false,
-    resizable:true,
-  }
+  },
 ];
 
-export default function DataGridDemo({cards}) {
+export default function DataGridDemo({ cards }) {
   return (
     (cards && cards.length > 0) ? (
-        <Box sx={{
+      <Box sx={{
         height: 400,
         width: '100%',
         '& .normalClass': {
@@ -50,29 +52,34 @@ export default function DataGridDemo({cards}) {
         },
         '& .redClass': {
           color: '#ff0000',
-          fontWeight:'bold'
+          fontWeight: 'bold',
         },
-      }}>
+      }}
+      >
         <DataGrid
-            rows={cards}
-            columns={columns}
-            pageSize={5}
-            rowsPerPageOptions={[5]}
-            checkboxSelection
-            disableSelectionOnClick
-            experimentalFeatures={{ newEditingApi: true }}
-            getCellClassName={(params) => {
-              if (params.field === 'balance' && params.value <=0) {
-                return 'redClass';
-              }
-              return 'normalClass';
-            }}
+          rows={cards}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+          checkboxSelection
+          disableSelectionOnClick
+          experimentalFeatures={{ newEditingApi: true }}
+          getCellClassName={(params) => {
+            if (params.field === 'balance' && params.value <= 0) {
+              return 'redClass';
+            }
+            return 'normalClass';
+          }}
         />
-        </Box>
-      ) : (
-        <Stack sx={{ width: '100%' }} spacing={2}>
-            <Alert severity="error">No Cards Found!</Alert>
-        </Stack>
-      )
+      </Box>
+    ) : (
+      <Stack sx={{ width: '100%' }} spacing={2}>
+        <Alert severity="error">No Cards Found!</Alert>
+      </Stack>
+    )
   );
 }
+
+DataGridDemo.propTypes = {
+  cards: PropTypes.array.isRequired,
+};

@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+/* eslint-disable react/jsx-filename-extension */
+import React, { useState } from 'react';
+
+import PropTypes from 'prop-types';
 import {
   Button,
   FormGroup,
   FormLabel,
   TextField,
-} from "@mui/material";
+} from '@mui/material';
 import Box from '@mui/material/Box';
-
-
 
 export default function FormSubmitHooks({ addCard }) {
   const [formValues, setFormValues] = useState({});
 
   const handleTextFieldChange = (
-    event
+    event,
   ) => {
     const { name, value } = event.target;
     setFormValues({
@@ -22,11 +23,10 @@ export default function FormSubmitHooks({ addCard }) {
     });
   };
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
     addCard(formValues);
-  }
+  };
 
   return (
 
@@ -38,15 +38,20 @@ export default function FormSubmitHooks({ addCard }) {
       noValidate
       autoComplete="off"
     >
-      <FormLabel component="legend" sx={{
-        fontSize: '1.6em',
-      }}>Credit Card System</FormLabel>
+      <FormLabel
+        component="legend"
+        sx={{
+          fontSize: '1.6em',
+        }}
+      >
+        Credit Card System
+      </FormLabel>
       <FormGroup
         sx={{
           padding: 2,
           borderRadius: 2,
-          border: "1px solid",
-          borderColor: "primary.main",
+          border: '1px solid',
+          borderColor: 'primary.main',
         }}
       >
         <TextField
@@ -56,8 +61,8 @@ export default function FormSubmitHooks({ addCard }) {
           placeholder="Card-Holder Name..."
           onChange={handleTextFieldChange}
           inputProps={{ maxLength: 20 }}
-          error={formValues["name"] && formValues["name"]!== "" && !formValues["name"].match("^[a-zA-Z ]*$")}
-          helperText = {formValues["name"] && formValues["name"]!== "" && !formValues["name"].match("^[a-zA-Z ]*$")?'The only special character allowed is space, up to 20 characters':''}
+          error={formValues.name && formValues.name !== '' && !formValues.name.match('^[a-zA-Z ]*$')}
+          helperText={formValues.name && formValues.name !== '' && !formValues.name.match('^[a-zA-Z ]*$') ? 'The only special character allowed is space, up to 20 characters' : ''}
         />
         <TextField
           sx={{ paddingBottom: 2 }}
@@ -66,8 +71,8 @@ export default function FormSubmitHooks({ addCard }) {
           variant="outlined"
           placeholder="Primary Account Number..."
           onChange={handleTextFieldChange}
-          error={formValues["pan"] && formValues["pan"].length>19}
-          helperText = {formValues["pan"] && formValues["pan"].length>19?'Credit card numbers may vary in length, up to 19 characters':''}
+          error={formValues.pan && formValues.pan.length > 19}
+          helperText={formValues.pan && formValues.pan.length > 19 ? 'Credit card numbers may vary in length, up to 19 characters' : ''}
         />
         <TextField
           sx={{ paddingBottom: 2 }}
@@ -77,10 +82,12 @@ export default function FormSubmitHooks({ addCard }) {
           placeholder="Limit"
           onChange={handleTextFieldChange}
         />
-
-
-        <Button variant="outlined" type="submit" onClick={handleSubmit} disabled={!formValues["name"] || !formValues["pan"] || !formValues["limit"]}>Save</Button>
+        <Button variant="outlined" type="submit" onClick={handleSubmit} disabled={!formValues.name || !formValues.pan || !formValues.limit}>Save</Button>
       </FormGroup>
     </Box>
   );
 }
+
+FormSubmitHooks.propTypes = {
+  addCard: PropTypes.func.isRequired,
+};

@@ -1,17 +1,18 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/jsx-filename-extension */
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import PropTypes from 'prop-types';
 
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+const Alert = React.forwardRef((props, ref) => <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />);
 
-export default function CustomizedSnackbars({severity, message, notificationCallback}) {
+export default function CustomizedSnackbars({ severity, message, notificationCallback }) {
   const [open, setOpen] = React.useState(true);
-  React.useEffect(()=>{
-    if(open===false){
-        notificationCallback();
+  React.useEffect(() => {
+    if (open === false) {
+      notificationCallback();
     }
   });
 
@@ -33,3 +34,10 @@ export default function CustomizedSnackbars({severity, message, notificationCall
     </Stack>
   );
 }
+
+CustomizedSnackbars.propTypes = {
+  severity: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
+  notificationCallback: PropTypes.func.isRequired,
+
+};
