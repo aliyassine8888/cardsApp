@@ -36,7 +36,7 @@ Launches the test runner in the interactive watch mode.\
 
 Concurently run the client and the server apps.\
 
-<img src="./front/public/ccs1.png" alt="Alt text" title="Optional title">
-<img src="./front/public/ccs2.png" alt="Alt text" title="Optional title">
+<img src="./front/public/ccs11.png" alt="Alt text" title="Optional title">
+<img src="./front/public/ccs21.png" alt="Alt text" title="Optional title">
 
 

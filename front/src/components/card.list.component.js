@@ -9,28 +9,33 @@ const columns = [
   {
     field: 'name',
     headerName: 'Full name',
-    width: 150,
-    editable: true,
+    minWidth: 100,
+    editable: false,
+    resizable:false,
   },
   {
     field: 'pan',
     headerName: 'Primary Account Number',
-    width: 220,
-    editable: true,
+    minWidth: 220,
+    flex:1,
+    editable: false,
+    resizable:true,
   },
   {
     field: 'balance',
     headerName: 'Balance',
     type: 'number',
-    width: 110,
-    editable: true,
+    minWidth: 110,
+    editable: false,
+    resizable:true,
   },
   {
     field: 'limit',
     headerName: 'Limit',
     type: 'number',
-    width: 110,
-    editable: true,
+    minWidth: 110,
+    editable: false,
+    resizable:true,
   }
 ];
 
