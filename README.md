@@ -1,8 +1,16 @@
-# Getting Started with Cards App Backend & Frontend
+# Getting Started with Cards App Backend & Frontend 
+
+## Tech Stack
+
+NodeJs, Express, React, LowDb (In-Memory)
+
+<br/><br/>
+
 
 ## Available Scripts
 
 In the project directory, you can run:
+
 
 
 ### `npm run server`
@@ -28,6 +36,7 @@ Launches the test runner in the interactive watch mode.\
 
 Concurently run the client and the server apps.\
 
-<img src="./front/public/card_portal.png" alt="Alt text" title="Optional title">
+<img src="./front/public/ccs1.png" alt="Alt text" title="Optional title">
+<img src="./front/public/ccs2.png" alt="Alt text" title="Optional title">
 
 
