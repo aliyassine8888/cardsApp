@@ -26,6 +26,7 @@ export default function FormSubmitHooks({ addCard }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     addCard(formValues);
+    setFormValues({});
   };
 
   return (
@@ -59,6 +60,7 @@ export default function FormSubmitHooks({ addCard }) {
           name="name"
           variant="outlined"
           placeholder="Card-Holder Name..."
+          value={formValues.name ? formValues.name : ''}
           onChange={handleTextFieldChange}
           inputProps={{ maxLength: 20 }}
           error={formValues.name && formValues.name !== '' && !formValues.name.match('^[a-zA-Z ]*$')}
@@ -70,6 +72,7 @@ export default function FormSubmitHooks({ addCard }) {
           type="number"
           variant="outlined"
           placeholder="Primary Account Number..."
+          value={formValues.pan ? formValues.pan : ''}
           onChange={handleTextFieldChange}
           error={formValues.pan && formValues.pan.length > 19}
           helperText={formValues.pan && formValues.pan.length > 19 ? 'Credit card numbers may vary in length, up to 19 characters' : ''}
@@ -80,6 +83,7 @@ export default function FormSubmitHooks({ addCard }) {
           type="number"
           variant="outlined"
           placeholder="Limit"
+          value={formValues.limit ? formValues.limit : ''}
           onChange={handleTextFieldChange}
         />
         <Button variant="outlined" type="submit" onClick={handleSubmit} disabled={!formValues.name || !formValues.pan || !formValues.limit}>Save</Button>
