@@ -24,7 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test src/App.test.js",
+    "test": "react-scripts test src/*",
     "eject": "react-scripts eject",
     "lint": "eslint ./src --fix"
   },
